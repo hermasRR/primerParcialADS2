@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Formulario con Flask</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+    </head>
+    <body>
+        <h1 style="text-align: center">Formulario</h1>
+        <form method="POST" action="{{url_for('enviarForm')}}">
+          <label>Nombre:</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Nombre" pattern="[a-zA-Z]+" required>
+            <br>
+            <label>Apellido:</label>
+            <input id="apellido" name="apellido" type="text" placeholder="Apellido" pattern="[a-zA-Z]+" required>
+            <br>
+            <label>Fecha de Nacimiento:</label>
+            <input id="fecha_nacimiento" name="fecha_nacimiento" min="1950-01-01" max="2010-12-31" type="date" required>
+            <br>
+            <label>Edad:</label>
+            <input id="edad" name="edad" type="number" placeholder="Edad" pattern="\d+" required>
+            <br>
+            <button>Guardar</button>
+        </form>
+    </body>
+</html>
