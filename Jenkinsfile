@@ -1,25 +1,24 @@
 pipeline {
-    agent any
-    
+    agent {
+        docker {
+            image 'server-testing1:latest'
+            args '-p 4001:4001'
+        }
+    }
     stages {
-        stage('Clonar código fuente') {
+        stage('Ejecutar contenedor') {
             steps {
-                git 'https://github.com/hermasRR/primerParcialADS2.git'
+                sh 'docker run -d --name test_server server-testing1'
             }
         }
-        stage('Instalar dependencias') {
+        stage('Realizar pruebas') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh 'pytest'
             }
         }
-        stage('Ejecutar pruebas') {
+        stage('Detener contenedor') {
             steps {
-                sh 'pytest -v'
-            }
-        }
-        stage('Construir imagen de Docker') {
-            steps {
-                sh 'docker build --no-cache -t examenParcial .'
+                sh 'docker stop test_server'
             }
         }
     }
