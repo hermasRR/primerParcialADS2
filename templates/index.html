@@ -6,20 +6,35 @@
     </head>
     <body>
         <h1 style="text-align: center">Formulario</h1>
-        <form method="POST" action="{{url_for('enviarForm')}}">
-          <label>Nombre:</label>
-            <input id="nombre" name="nombre" type="text" placeholder="Nombre" pattern="[a-zA-Z]+" required>
+        <form method="POST" action="{{url_for('procesarForm')}}">
+            <label>Codigo:</label>
+            <input id="codigo" name="codigo" type="number" placeholder="Codigo" pattern="\d+" required>
             <br>
-            <label>Apellido:</label>
-            <input id="apellido" name="apellido" type="text" placeholder="Apellido" pattern="[a-zA-Z]+" required>
+            <label>Nombre:</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Nombre" required>
             <br>
-            <label>Fecha de Nacimiento:</label>
-            <input id="fecha_nacimiento" name="fecha_nacimiento" min="1950-01-01" max="2010-12-31" type="date" required>
-            <br>
-            <label>Edad:</label>
-            <input id="edad" name="edad" type="number" placeholder="Edad" pattern="\d+" required>
+            <label>Carrera:</label>
+            <input id="carrera" name="carrera" type="text" placeholder="Carrera" pattern="^[a-zA-Z ]*$" required>
             <br>
             <button>Guardar</button>
+          
+            <h1 style="text-align: center">Tabla de Datos</h1>
+            <table class="mi-tabla">
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Carrera</th>
+                </tr>
+                {% for dato in datos %}
+                <tr>
+                    <td>{{ dato["codigo"] }}</td>
+                    <td>{{ dato["nombre"] }}</td>
+                    <td>{{ dato["carrera"] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            
+            <p id="message">Datos Guardados</p>
         </form>
     </body>
 </html>

@@ -30,4 +30,22 @@ body {
     padding: 10px;
     cursor: pointer;
   }
+
+.mi-tabla {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.mi-tabla th, .mi-tabla td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.mi-tabla th {
+    background-color: #4CAF50;
+    color: white;
+}
+
   
