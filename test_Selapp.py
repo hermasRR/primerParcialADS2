@@ -13,7 +13,7 @@ def driver():
 
 def test_envio_formulario(driver):
     # Abre la página principal de la aplicación web Flask
-    driver.get('http://localhost:4000/')
+    driver.get('http://localhost:5000/')
     title = driver.title 
     print(title)
 
@@ -43,7 +43,7 @@ def test_envio_formulario(driver):
 
 def test_elemento_existe(driver):
     # Cargar la página web
-    driver.get('http://localhost:4000/')
+    driver.get('http://localhost:5000/')
 
     codigo = driver.find_element(By.NAME, "codigo")
     nombre = driver.find_element(By.NAME, "nombre")
@@ -58,7 +58,7 @@ def test_elemento_existe(driver):
 
 def test_elemento_no_existe(driver):
     # Cargar la página web
-    driver.get('http://localhost:4000/')
+    driver.get('http://localhost:5000/')
 
     # Intentar encontrar un elemento que no existe en la página
     non_existent_element = driver.find_element_by_css_selector('input[type="checkbox"]', 'input[type="radio"]')    
