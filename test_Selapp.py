@@ -6,7 +6,7 @@ import pytest
 
 @pytest.fixture
 def driver():
-    service = Service(executable_path="/usr/local/bin/chromedriver")
+    service = Service(executable_path="/chromedriver")
     driver = webdriver.Chrome(service=service)
     yield driver # Asegurarse de que el driver está disponible globalmente
     driver.quit() # Cerrar el driver después de que se han ejecutado todas las pruebas
